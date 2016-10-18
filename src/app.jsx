@@ -2,6 +2,7 @@ import React from 'react';
 import reset from './reset.css';
 import app from './app.css';
 import TopList from './top-list';
+import Header from './header';
 
 const topList = [
   { id: 1, name: 'Håkon', weeklyCount: 5, totalCount: 25 },
@@ -14,7 +15,8 @@ const topList = [
 
 const App = () => {
   return (
-    <div className={app.container}>      
+    <div className={app.container}>
+      <Header title="17.10 - 21.10"/>
       <TopList list={topList}/>
     </div>
   );
