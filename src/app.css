@@ -1,3 +1,9 @@
 body {
-  background-color: rgb(233, 228, 209);
+  background: #F8F3F1;
+}
+
+.container {
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
 }

@@ -10,11 +10,13 @@ const topList = [
   { id: 4, name: 'Skage', weeklyCount: 7, totalCount: 23 },
   { id: 5, name: 'Espen', weeklyCount: 6, totalCount: 42 },
   { id: 6, name: 'Boye', weeklyCount: 4, totalCount: 41 }
-];
+].sort((a, b) => b.weeklyCount - a.weeklyCount);
 
 const App = () => {
   return (
-    <TopList list={topList}/>
+    <div className={app.container}>      
+      <TopList list={topList}/>
+    </div>
   );
 }
 
