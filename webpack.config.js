@@ -41,6 +41,14 @@ module.exports = {
             'react'
           ]
         }
+      },
+      {
+        test: /\.css/,
+        loaders: [
+          'style?singleton',
+          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+        ],
+        exclude: /(node_modules)/,
       }
     ]
   },
