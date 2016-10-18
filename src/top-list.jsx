@@ -4,7 +4,10 @@ import topList from './top-list.css';
 const TopList = ({list}) => {
   const playerItems = list.map((player, index) => (
     <li className={topList.card} key={player.id}>
-      <span className={topList['card-header']}><strong>{`${index+1}. `}</strong>{player.name}</span>
+      <header className={topList['card-header']}>
+        <span className={topList['card-number']}>{`${index+1}. `}</span>
+        <span>{player.name}</span>
+      </header>
       <span className={topList['card-stat']}>{player.weeklyCount}</span>
     </li>
   ))
