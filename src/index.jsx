@@ -18,7 +18,7 @@ const topList = [
 const rootElement = document.getElementById('app');
 const store = createStore(reducers, {
   topList: topList
-});
+}, window.devToolsExtension && window.devToolsExtension());
 
 ReactDOM.render(
   <AppContainer>
