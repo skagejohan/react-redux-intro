@@ -1,11 +1,32 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
+var path = require('path');
+
+var paths = {
+  public: '/static/',
+  dist: path.join(__dirname +  'dist'),
+  contentBase: path.join(__dirname, '/static/'),
+};
 
 module.exports = {
-  entry: ['./src/index.jsx'],
+  devServer: {
+    contentBase: paths.contentBase,
+    publicPath: paths.publicPath,
+    hot: true,
+    historyApiFallback: true
+  },
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    './src/index.jsx'
+  ],
   output: {
-    path: '__dirname' +  '/dist',
-    filename: 'bundle.js'
+    path: paths.dist,
+    filename: 'bundle.js',
+    publicPath: paths.publicPath,
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     loaders: [
@@ -14,6 +35,7 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel',
         query: {
+          plugins: ['react-hot-loader/babel'],
           presets: [
             'es2015',
             'react'
@@ -23,9 +45,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    }),
     new webpack.HotModuleReplacementPlugin()
   ]
 };
