@@ -2,7 +2,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: ['./src/index.jsx'],
   output: {
     path: '__dirname' +  '/dist',
     filename: 'bundle.js'
@@ -10,11 +10,14 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules)/,
         loader: 'babel',
         query: {
-          presets: ['es2015']
+          presets: [
+            'es2015',
+            'react'
+          ]
         }
       }
     ]
