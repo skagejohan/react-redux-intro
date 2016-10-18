@@ -4,7 +4,7 @@
   "description": "Introduction to React and Redux for the DesignGuide workshop.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server --inline"
   },
   "repository": {
     "type": "git",
